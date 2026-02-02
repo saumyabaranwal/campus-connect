@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect - Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo-container">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-5-4l5-5-5-5m5 5H3"/>
+        </svg>
+      </div>
+      <h1>Campus Connect</h1>
+      <p>E-marketplace for JIITians</p>
+    </div>
+
+    <div class="login-card">
+      <h2>Welcome Back!</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">College Email</label>
+          <div class="input-wrapper">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <path d="M22 6l-10 7L2 6"/>
+            </svg>
+            <input type="email" id="email" placeholder="your.email@college.edu" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <input type="password" id="password" placeholder="••••••••" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+      </form>
+
+      <div class="signup-link">
+        Don't have an account? <a href="/signup.html">Sign Up</a>
+      </div>
+
+      <div class="demo-section">
+        <p>Quick Demo:</p>
+        <button type="button" id="demoBtn">Use demo credentials</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>

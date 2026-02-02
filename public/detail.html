@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect - Listing Details</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="background-color: #f9fafb;">
+  <div class="detail-container">
+    <button class="back-btn" onclick="window.location.href='/marketplace.html'">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back
+    </button>
+
+    <div class="detail-grid">
+      <div>
+        <div class="detail-image" id="listingImage">
+          <div class="detail-badges" id="badges"></div>
+        </div>
+
+        <div class="detail-content">
+          <h1 id="listingTitle"></h1>
+          <div class="listing-price" id="listingPrice"></div>
+
+          <div class="detail-description">
+            <h2>Description</h2>
+            <p id="listingDescription"></p>
+          </div>
+
+          <div class="detail-meta" id="listingMeta"></div>
+
+          <div id="relatedCourses"></div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="seller-card">
+          <h2>Seller Information</h2>
+          <div class="seller-profile" id="sellerProfile"></div>
+          <button class="contact-btn">
+            <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            Contact Seller
+          </button>
+        </div>
+
+        <div class="safety-card">
+          <h3>
+            <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: #92400e;">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Safety Tips
+          </h3>
+          <ul>
+            <li>Meet in public campus locations</li>
+            <li>Inspect item before payment</li>
+            <li>Don't share personal details</li>
+            <li>Report suspicious activity</li>
+          </ul>
+        </div>
+
+        <div class="category-badge" id="categoryBadge"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "campus-connect",
+  "version": "1.0.0",
+  "description": "Campus marketplace for JIITians",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "keywords": ["marketplace", "campus", "student"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "socket.io": "^4.6.1"
+  }
+}

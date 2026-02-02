@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Demo Student",
+    "email": "demo@jiit.ac.in",
+    "password": "demo123",
+    "rating": 4.5,
+    "avatar": "D",
+    "intent": "buy",
+    "year": "2",
+    "branch": "CSE",
+    "courses": [
+      "CS102",
+      "CS204"
+    ]
+  }
+]

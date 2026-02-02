@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect - Sign Up</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo-container">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4m-5-4l5-5-5-5m5 5H3"/>
+        </svg>
+      </div>
+      <h1>Join Campus Connect</h1>
+      <p>E-marketplace for JIITians</p>
+    </div>
+
+    <div class="login-card" style="max-width: 600px;">
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <div class="input-wrapper">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">College Email</label>
+          <div class="input-wrapper">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <path d="M22 6l-10 7L2 6"/>
+            </svg>
+            <input type="email" id="email" placeholder="your.email@jiit.ac.in" required>
+          </div>
+          <small style="color: var(--text-gray); font-size: 0.85rem; margin-top: 4px; display: block;">
+            Only @jiit.ac.in and @mail.jiit.ac.in emails are allowed
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <input type="password" id="password" placeholder="Create a strong password" required minlength="6">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>I want to</label>
+          <div class="post-type-tabs" style="margin-top: 8px;">
+            <button type="button" class="post-type-tab active" data-intent="buy">Buy</button>
+            <button type="button" class="post-type-tab" data-intent="sell">Sell</button>
+            <button type="button" class="post-type-tab" data-intent="services">Offer Services</button>
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-bottom: 24px;">
+          <div class="form-group">
+            <label for="year">Year</label>
+            <select id="year" required>
+              <option value="">Select Year</option>
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="branch">Branch</label>
+            <select id="branch" required>
+              <option value="">Select Branch</option>
+              <option value="CSE">Computer Science</option>
+              <option value="IT">Information Technology</option>
+              <option value="ECE">Electronics & Communication</option>
+              <option value="EEE">Electrical & Electronics</option>
+              <option value="ME">Mechanical</option>
+              <option value="CE">Civil</option>
+              <option value="BT">Biotechnology</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Registered Courses (Select all that apply)</label>
+          <div style="max-height: 200px; overflow-y: auto; border: 1px solid var(--border-gray); border-radius: 8px; padding: 12px; margin-top: 8px;">
+            <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
+              <input type="checkbox" name="courses" value="CS101">
+              <span>CS101 - Programming Fundamentals</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
+              <input type="checkbox" name="courses" value="CS102">
+              <span>CS102 - Data Structures</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
+              <input type="checkbox" name="courses" value="CS204">
+              <span>CS204 - Algorithms</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
+              <input type="checkbox" name="courses" value="PHY101">
+              <span>PHY101 - Physics Lab</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
+              <input type="checkbox" name="courses" value="EE201">
+              <span>EE201 - Digital Electronics</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
+              <input type="checkbox" name="courses" value="MATH101">
+              <span>MATH101 - Calculus</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
+              <input type="checkbox" name="courses" value="MATH102">
+              <span>MATH102 - Linear Algebra</span>
+            </label>
+          </div>
+          <small style="color: var(--text-gray); font-size: 0.85rem; margin-top: 4px; display: block;">
+            You'll see marketplace listings relevant to your courses
+          </small>
+        </div>
+
+        <button type="submit" class="btn">Create Account</button>
+      </form>
+
+      <div class="signup-link">
+        Already have an account? <a href="/login.html">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/signup.js"></script>
+</body>
+</html>

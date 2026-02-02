@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "title": "C++ Programming Tutor - One-on-One Sessions",
+    "description": "Helping with CS102 assignments and concepts. Available for doubt clearing sessions. 2 years of teaching experience.",
+    "price": 200,
+    "category": "Academic",
+    "type": "Offering",
+    "urgency": "Low Urgency",
+    "location": "Boys Hostel, Block C",
+    "availability": "Weekends, 10 AM - 6 PM",
+    "images": [],
+    "sellerId": 1,
+    "sellerName": "Rahul Mehta",
+    "sellerRating": 4.5,
+    "sellerAvatar": "R",
+    "status": "active",
+    "postedDate": "2026-01-31",
+    "relatedCourses": [
+      "CS102"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Introduction to Algorithms - 3rd Edition",
+    "description": "Well-maintained book, minimal highlighting. Perfect for CS204. Only used for one semester.",
+    "price": 450,
+    "category": "Books",
+    "type": "Selling",
+    "urgency": "Medium",
+    "location": "Girls Hostel, Block A",
+    "availability": "Evenings after 5 PM",
+    "images": [],
+    "sellerId": 2,
+    "sellerName": "Priya Sharma",
+    "sellerRating": 4.8,
+    "sellerAvatar": "P",
+    "status": "sold",
+    "postedDate": "2026-01-28"
+  },
+  {
+    "id": 3,
+    "title": "Digital Electronics Notes + Previous Year Papers",
+    "description": "Comprehensive notes for EE201. Includes solved previous year questions. Helped me score 9 CGPA!",
+    "price": 100,
+    "category": "Academic",
+    "type": "Selling",
+    "urgency": "Low Urgency",
+    "location": "Boys Hostel, Block A",
+    "availability": "After 6 PM",
+    "images": [],
+    "sellerId": 3,
+    "sellerName": "Rohan Shah",
+    "sellerRating": 4.8,
+    "sellerAvatar": "R",
+    "status": "active",
+    "postedDate": "2026-01-30"
+  }
+]

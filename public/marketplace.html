@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect - Marketplace</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Campus Connect</h1>
+        <p id="welcomeText">Welcome, Student</p>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn" onclick="window.location.href='/chat.html'" title="Messages">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </button>
+        <button class="icon-btn" onclick="window.location.href='/marketplace.html'">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="profileBtn">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="search-bar">
+      <div class="search-wrapper">
+        <svg viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search for products, services, or courses...">
+      </div>
+    </div>
+
+    <div class="category-tabs">
+      <button class="category-tab active" data-category="All">All</button>
+      <button class="category-tab" data-category="Midnight Food">🍔 Midnight Food</button>
+      <button class="category-tab" data-category="Books">📚 Books</button>
+      <button class="category-tab" data-category="Academic">🎓 Academic</button>
+      <button class="category-tab" data-category="Services">🔧 Services</button>
+      <button class="category-tab" data-category="Lost & Found">💼 Lost & Found</button>
+      <button class="category-tab" data-category="Events">🎉 Events</button>
+    </div>
+
+    <button class="filter-btn">Show Filters</button>
+
+    <div class="listings-grid" id="listingsGrid">
+      <!-- Listings will be loaded here -->
+    </div>
+  </div>
+
+  <button class="fab" onclick="window.location.href='/create-post.html'">
+    <svg viewBox="0 0 24 24">
+      <line x1="12" y1="5" x2="12" y2="19"/>
+      <line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+  </button>
+
+  <script src="/js/marketplace.js"></script>
+</body>
+</html>

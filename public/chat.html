@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect - Chat</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <div class="header-left">
+        <h1>Campus Connect</h1>
+        <p>Messages</p>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn" onclick="window.location.href='/marketplace.html'">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </button>
+        <button class="icon-btn" id="profileBtn">
+          <svg viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Container -->
+  <div class="chat-container">
+    <!-- Conversations List (Left Side) -->
+    <div class="conversations-sidebar">
+      <div class="conversations-header">
+        <h2>Conversations</h2>
+      </div>
+      <div class="conversations-list" id="conversationsList">
+        <!-- Conversations will be loaded here -->
+        <div style="text-align: center; padding: 40px; color: var(--text-gray);">
+          <svg viewBox="0 0 24 24" style="width: 48px; height: 48px; stroke: var(--text-gray); margin: 0 auto 16px;">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <p>No conversations yet</p>
+          <p style="font-size: 0.85rem; margin-top: 8px;">Start chatting by clicking "Contact Seller" on any listing!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Window (Right Side) -->
+    <div class="chat-window">
+      <!-- No Chat Selected State -->
+      <div class="no-chat-selected" id="noChatSelected">
+        <svg viewBox="0 0 24 24" style="width: 80px; height: 80px; stroke: var(--border-gray); margin-bottom: 20px;">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <h2>Select a conversation</h2>
+        <p>Choose a conversation from the left to start chatting</p>
+      </div>
+
+      <!-- Active Chat -->
+      <div class="active-chat" id="activeChat" style="display: none;">
+        <!-- Chat Header -->
+        <div class="chat-header">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="seller-avatar" id="chatAvatar">R</div>
+            <div>
+              <h3 id="chatUserName">Rahul Mehta</h3>
+              <span class="online-status" id="onlineStatus">Online</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="messages-area" id="messagesArea">
+          <!-- Messages will appear here -->
+        </div>
+
+        <!-- Message Input -->
+        <div class="message-input-container">
+          <form id="messageForm" style="display: flex; gap: 12px; width: 100%;">
+            <input 
+              type="text" 
+              id="messageInput" 
+              placeholder="Type your message..." 
+              required
+              style="flex: 1; padding: 12px 16px; border: 1px solid var(--border-gray); border-radius: 8px; font-size: 1rem;"
+            >
+            <button type="submit" class="send-btn">
+              <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Socket.IO Client -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1770007818057,
+    "senderId": 1,
+    "receiverId": 1,
+    "message": "hello",
+    "timestamp": "2026-02-02T04:50:18.057Z",
+    "read": false
+  },
+  {
+    "id": 1770007826974,
+    "senderId": 1,
+    "receiverId": 1,
+    "message": "what is the price",
+    "timestamp": "2026-02-02T04:50:26.974Z",
+    "read": false
+  }
+]

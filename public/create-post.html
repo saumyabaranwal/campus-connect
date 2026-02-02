@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect - Create Post</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="detail-container">
+    <button class="back-btn" onclick="window.location.href='/marketplace.html'">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Back
+    </button>
+
+    <div class="form-container">
+      <h1>Create Post</h1>
+      <p>Share what you're selling, buying, or offering</p>
+
+      <form id="createPostForm">
+        <div class="form-group">
+          <label>Post Type</label>
+          <div class="post-type-tabs">
+            <button type="button" class="post-type-tab active" data-type="Selling">Sell Product</button>
+            <button type="button" class="post-type-tab" data-type="Buying">Buy Product</button>
+            <button type="button" class="post-type-tab" data-type="Offering">Offer Service</button>
+            <button type="button" class="post-type-tab" data-type="Requesting">Request Service</button>
+            <button type="button" class="post-type-tab" data-type="Rental">Rental</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Title *</label>
+          <input type="text" id="title" placeholder="E.g., CS204 Textbook - Like New" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category *</label>
+          <select id="category" required>
+            <option value="">Select Category</option>
+            <option value="Academic">Academic</option>
+            <option value="Books">Books</option>
+            <option value="Midnight Food">Midnight Food</option>
+            <option value="Services">Services</option>
+            <option value="Lost & Found">Lost & Found</option>
+            <option value="Events">Events</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price (₹) *</label>
+          <input type="number" id="price" placeholder="0" min="0" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" placeholder="Describe the item/service in detail..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="imageUrl">Images</label>
+          <div class="image-upload">
+            <input type="url" id="imageUrl" placeholder="Paste image URL">
+            <button type="button" class="add-btn">
+              <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Add
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location *</label>
+          <select id="location" required>
+            <option value="">Select Location</option>
+            <option value="Boys Hostel, Block A">Boys Hostel, Block A</option>
+            <option value="Boys Hostel, Block B">Boys Hostel, Block B</option>
+            <option value="Boys Hostel, Block C">Boys Hostel, Block C</option>
+            <option value="Girls Hostel, Block A">Girls Hostel, Block A</option>
+            <option value="Girls Hostel, Block B">Girls Hostel, Block B</option>
+            <option value="Academic Block">Academic Block</option>
+            <option value="Library">Library</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="urgency">Urgency</label>
+            <select id="urgency">
+              <option value="Low Urgency">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="availability">Availability *</label>
+            <input type="text" id="availability" placeholder="E.g., Weekdays after 5 PM" required>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Post</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/create-post.js"></script>
+</body>
+</html>
