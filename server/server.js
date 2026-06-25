@@ -1,9 +1,3 @@
-// ===========================================
-// Campus Connect - Backend Server
-// ===========================================
-// This is the heart of our application!
-// It handles user authentication, listings,
-// and real-time chat using Socket.IO
 
 const express = require('express');
 const cors = require('cors');
@@ -12,10 +6,6 @@ const http = require('http');
 const socketIO = require('socket.io');
 const fs = require('fs').promises;
 const path = require('path');
-
-// ===========================================
-// Server Setup
-// ===========================================
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server, {
@@ -25,27 +15,21 @@ const io = socketIO(server, {
   }
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Middleware - these help process incoming requests
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
-// ===========================================
-// File Paths - Where we store data
-// ===========================================
 const usersFile = path.join(__dirname, '../data/users.json');
 const listingsFile = path.join(__dirname, '../data/listings.json');
 const messagesFile = path.join(__dirname, '../data/messages.json');
 
-// ===========================================
-// Data Initialization
-// ===========================================
-// Create default data if files don't exist
+
 async function initializeData() {
   try {
-    // Check if users.json exists, if not create it with demo user
+
     await fs.access(usersFile);
   } catch {
     const defaultUsers = [
@@ -67,7 +51,7 @@ async function initializeData() {
   }
 
   try {
-    // Check if listings.json exists, if not create sample listings
+
     await fs.access(listingsFile);
   } catch {
     const defaultListings = [
@@ -140,32 +124,24 @@ async function initializeData() {
   }
 }
 
-// ===========================================
-// Helper Functions
-// ===========================================
 
-// Read JSON file and parse it
 async function readJSON(filePath) {
   const data = await fs.readFile(filePath, 'utf8');
   return JSON.parse(data);
 }
 
-// Write data to JSON file
+
 async function writeJSON(filePath, data) {
   await fs.writeFile(filePath, JSON.stringify(data, null, 2));
 }
 
-// ===========================================
-// API Routes - Authentication
-// ===========================================
 
-// LOGIN - Check user credentials
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     const emailLower = email.toLowerCase();
     
-    // Only allow JIIT email addresses
+
     if (!emailLower.endsWith('@jiit.ac.in') && !emailLower.endsWith('@mail.jiit.ac.in')) {
       return res.status(401).json({ 
         success: false, 
@@ -177,7 +153,7 @@ app.post('/api/login', async (req, res) => {
     const user = users.find(u => u.email.toLowerCase() === emailLower && u.password === password);
     
     if (user) {
-      // Don't send password back to client
+
       const { password, ...userWithoutPassword } = user;
       res.json({ success: true, user: userWithoutPassword });
     } else {
@@ -189,12 +165,12 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// SIGNUP - Create new user account
+
 app.post('/api/signup', async (req, res) => {
   try {
     const { name, email, password, intent, year, branch, courses } = req.body;
     
-    // Validate JIIT email domain
+
     const emailLower = email.toLowerCase();
     if (!emailLower.endsWith('@jiit.ac.in') && !emailLower.endsWith('@mail.jiit.ac.in')) {
       return res.status(400).json({ 
@@ -205,12 +181,11 @@ app.post('/api/signup', async (req, res) => {
     
     const users = await readJSON(usersFile);
     
-    // Check if email already exists
     if (users.find(u => u.email.toLowerCase() === emailLower)) {
       return res.status(400).json({ success: false, message: 'Email already exists' });
     }
     
-    // Create new user object
+
     const newUser = {
       id: users.length + 1,
       name,
@@ -227,7 +202,7 @@ app.post('/api/signup', async (req, res) => {
     users.push(newUser);
     await writeJSON(usersFile, users);
     
-    // Don't send password back to client
+
     const { password: _, ...userWithoutPassword } = newUser;
     res.json({ success: true, user: userWithoutPassword });
   } catch (error) {
@@ -236,11 +211,7 @@ app.post('/api/signup', async (req, res) => {
   }
 });
 
-// ===========================================
-// API Routes - Listings
-// ===========================================
 
-// GET ALL LISTINGS - with optional filtering
 app.get('/api/listings', async (req, res) => {
   try {
     const listings = await readJSON(listingsFile);
@@ -253,7 +224,7 @@ app.get('/api/listings', async (req, res) => {
       filtered = filtered.filter(l => l.category === category);
     }
     
-    // Filter by search term if specified
+
     if (search) {
       const searchLower = search.toLowerCase();
       filtered = filtered.filter(l => 
@@ -316,11 +287,7 @@ app.post('/api/listings', async (req, res) => {
   }
 });
 
-// ===========================================
-// API Routes - Users
-// ===========================================
 
-// GET USER PROFILE - by ID
 app.get('/api/users/:id', async (req, res) => {
   try {
     const users = await readJSON(usersFile);
@@ -351,11 +318,7 @@ app.get('/api/users/:id/listings', async (req, res) => {
   }
 });
 
-// ===========================================
-// API Routes - Chat/Messages
-// ===========================================
 
-// GET CONVERSATION - messages between two users
 app.get('/api/messages/:userId/:otherUserId', async (req, res) => {
   try {
     const messages = await readJSON(messagesFile);
@@ -375,7 +338,6 @@ app.get('/api/messages/:userId/:otherUserId', async (req, res) => {
   }
 });
 
-// GET ALL CONVERSATIONS - list of people user has chatted with
 app.get('/api/conversations/:userId', async (req, res) => {
   try {
     const messages = await readJSON(messagesFile);
@@ -414,11 +376,7 @@ app.get('/api/conversations/:userId', async (req, res) => {
   }
 });
 
-// ===========================================
-// Socket.IO - Real-time Chat
-// ===========================================
 
-// Store online users: { userId: socketId }
 const onlineUsers = {};
 
 io.on('connection', (socket) => {
@@ -479,16 +437,10 @@ io.on('connection', (socket) => {
   });
 });
 
-// ===========================================
-// Serve HTML Pages
-// ===========================================
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 
-// ===========================================
-// Start Server
-// ===========================================
 initializeData().then(() => {
   server.listen(PORT, () => {
     console.log('');
